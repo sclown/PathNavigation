@@ -1,48 +1,45 @@
 //
-//  File.swift
-//  Navigation
-//
-//  Created by Dmitry Kurkin on 11.04.25.
+//  NavigationViewModel.swift
 //
 
 import Foundation
 
-public class NavigationViewModel: ObservableObject {
-    @Published var state = PathNavigationState()
-    private let topChanged: (AnyHashable) -> Void
+public class NavigationViewModel<NavigationRoute: Hashable>: ObservableObject {
+    @Published var state = PathNavigationState<NavigationRoute>()
+    private let topChanged: (NavigationRoute) -> Void
 
     public init(
-        root: AnyHashable,
-        topChanged: @escaping (AnyHashable) -> Void = { _ in }
+        root: NavigationRoute,
+        topChanged: @escaping (NavigationRoute) -> Void = { _ in }
     ) {
         state = PathNavigationState(root: root)
         self.topChanged = topChanged
     }
 
     public init(
-        stack root: AnyHashable,
-        topChanged: @escaping (AnyHashable) -> Void = { _ in }
+        stack root: NavigationRoute,
+        topChanged: @escaping (NavigationRoute) -> Void = { _ in }
     ) {
         state = PathNavigationState(stack: root)
         self.topChanged = topChanged
     }
 
     init(
-        state: PathNavigationState = .init(),
-        topChanged: @escaping (AnyHashable) -> Void = { _ in }
+        state: PathNavigationState<NavigationRoute> = .init(),
+        topChanged: @escaping (NavigationRoute) -> Void = { _ in }
     ) {
         self.state = state
         self.topChanged = topChanged
     }
 
-    public func present(_ fragment: AnyHashable, transition: NavigationTransition) {
+    public func present(_ fragment: NavigationRoute, transition: NavigationTransition) {
         state.add(item: PathNavigationItem(fragment, transition))
-        topChanged(state.updateTop()?.fragment)
+        state.updateTop().map { topChanged($0.fragment) }
     }
 
     public func dismiss() {
         state.removeLast()
-        topChanged(state.updateTop()?.fragment)
+        state.updateTop().map { topChanged($0.fragment) }
     }
 
     public func allowTransition(for itemID: String) {
@@ -52,13 +49,13 @@ public class NavigationViewModel: ObservableObject {
     public func removeLast(stepID: String?) {
         if let stepID, state.lastItems[stepID] != nil {
             state.handleDismissed(stepID: stepID)
-            topChanged(state.updateTop()?.fragment)
+            state.updateTop().map { topChanged($0.fragment) }
         }
     }
 
     public func replace(
-        stack: [AnyHashable],
-        path: [(AnyHashable, NavigationTransition)]
+        stack: [NavigationRoute],
+        path: [(NavigationRoute, NavigationTransition)]
     ) {
         if stack.isEmpty == false {
             let root = stack[0]
@@ -75,12 +72,12 @@ public class NavigationViewModel: ObservableObject {
             PathNavigationItem(fragment, transition)
         }
         state.updateLastItems()
-        topChanged(state.updateTop()?.fragment)
+        state.updateTop().map { topChanged($0.fragment) }
     }
 
     public func replacePath(
-        _ path: [AnyHashable],
-        transitionMap: @escaping (AnyHashable) -> NavigationTransition?
+        _ path: [NavigationRoute],
+        transitionMap: @escaping (NavigationRoute) -> NavigationTransition?
     ) {
         let items = path.compactMap { fragment in
             if let transition = transitionMap(fragment) {
@@ -90,11 +87,11 @@ public class NavigationViewModel: ObservableObject {
             }
         }
         state.reset(to: items)
-        topChanged(state.updateTop()?.fragment)
+        state.updateTop().map { topChanged($0.fragment) }
     }
 
-    public func replaceStackPath(_ path: [PathNavigationItem]) {
+    public func replaceStackPath(_ path: [PathNavigationItem<NavigationRoute>]) {
         state.applyStack(path: path)
-        topChanged(state.updateTop()?.fragment)
+        state.updateTop().map { topChanged($0.fragment) }
     }
 }

@@ -1,21 +1,19 @@
 //
 //  RequestView.swift
-//  Example
-//
-//  Created by Dmitry Kurkin on 18.07.25.
 //
 
 import Combine
+import InputRequestCombine
 import SwiftUI
 
 struct RequestView: View {
     let router: PassthroughSubject<ExampleRoute, Never>
-    let request: InputRequest<ExampleRoute>
+    let request: InputRequestCombine<ExampleRoute>
     @State private var text: String = ""
 
     init(
         router: PassthroughSubject<ExampleRoute, Never>,
-        request: InputRequest<ExampleRoute>
+        request: InputRequestCombine<ExampleRoute>
     ) {
         self.router = router
         self.request = request

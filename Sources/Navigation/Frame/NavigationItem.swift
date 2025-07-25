@@ -1,19 +1,16 @@
 //
-//  File.swift
-//  Navigation
-//
-//  Created by Dmitry Kurkin on 11.04.25.
+//  NavigationItem.swift
 //
 
 import Foundation
 
-public struct PathNavigationItem: Hashable {
+public struct PathNavigationItem<NavigatoinRoute>: Hashable where NavigatoinRoute: Hashable {
     public let itemID: String
-    public let fragment: AnyHashable
+    public let fragment: NavigatoinRoute
     public let transition: NavigationTransition
 
     public init(
-        _ fragment: AnyHashable,
+        _ fragment: NavigatoinRoute,
         _ transition: NavigationTransition,
         itemID: String = UUID().uuidString
     ) {

@@ -1,17 +1,14 @@
 //
-//  File.swift
-//  Navigation
-//
-//  Created by Dmitry Kurkin on 11.04.25.
+//  NavigationFrame.swift
 //
 
 import SwiftUI
 
-struct PathNavigationFrame<Content>: View where Content: View {
+struct PathNavigationFrame<Content, NavigationRoute>: View where Content: View, NavigationRoute: Hashable {
     let content: Content
     let nextContent: AnyView?
     let alertContent: AlertElements?
-    let state: PathNavigationFrameState
+    let state: PathNavigationFrameState<NavigationRoute>
     let finishTransition: () -> Void
     let onDismiss: () -> Void
 
@@ -19,7 +16,7 @@ struct PathNavigationFrame<Content>: View where Content: View {
         content: Content,
         nextContent: AnyView?,
         alertContent: AlertElements?,
-        state: PathNavigationFrameState,
+        state: PathNavigationFrameState<NavigationRoute>,
         finishTransition: @escaping () -> Void,
         onDismiss: @escaping () -> Void
     ) {

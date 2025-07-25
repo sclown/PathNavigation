@@ -7,7 +7,6 @@ import SwiftUI
 
 struct PageView: View {
     let router: PassthroughSubject<ExampleRoute, Never>
-    @State private var text: String = ""
 
     init(router: PassthroughSubject<ExampleRoute, Never>) {
         self.router = router

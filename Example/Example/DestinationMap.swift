@@ -3,36 +3,33 @@
 //
 
 import Combine
+import InputRequestCombine
 import Navigation
 import SwiftUI
 
 @MainActor
 struct DestinationsMap {
     let router: PassthroughSubject<ExampleRoute, Never>
-    let request: InputRequest<ExampleRoute>
+    let request: InputRequestCombine<ExampleRoute>
 
     @ViewBuilder
-    func destination(_ destination: AnyHashable) -> some View {
-        if let route = destination as? ExampleRoute {
-            switch route {
-            case .root: PageView(router: router)
-            case .push: PageView(router: router)
-            case .present: PageView(router: router)
-            case .sheet: PageView(router: router)
-            case .request: RequestView(
-                router: router,
-                request: request
-            )
-            case .child: child()
-            default: EmptyView()
-            }
-        } else {
-            EmptyView()
+    func destination(_ destination: ExampleRoute) -> some View {
+        switch destination {
+        case .root: PageView(router: router)
+        case .push: PageView(router: router)
+        case .present: PageView(router: router)
+        case .sheet: PageView(router: router)
+        case .request: RequestView(
+            router: router,
+            request: request
+        )
+        case .child: child()
+        default: EmptyView()
         }
     }
 
-    func alert(for route: AnyHashable) -> AlertElements {
-        if case let .alert(message) = (route as? ExampleRoute) {
+    func alert(for route: ExampleRoute) -> AlertElements {
+        if case let .alert(message) = route {
             return AlertElements(
                 title: "Alert with",
                 buttonsBuilder: {

@@ -1,20 +1,17 @@
 //
-//  File.swift
-//  Navigation
-//
-//  Created by Dmitry Kurkin on 11.04.25.
+//  NavigationFrameState.swift
 //
 
 import Foundation
 
-class PathNavigationFrameState: ObservableObject, Equatable {
+class PathNavigationFrameState<NavigationRoute: Hashable>: ObservableObject, Equatable {
     let itemID: String
-    var next: PathNavigationItem?
+    var next: PathNavigationItem<NavigationRoute>?
     var allowTransition = false
 
     init(
         itemID: String,
-        next: PathNavigationItem? = nil,
+        next: PathNavigationItem<NavigationRoute>? = nil,
         allowTransition: Bool = false
     ) {
         self.itemID = itemID

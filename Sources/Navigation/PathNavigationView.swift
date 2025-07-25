@@ -4,15 +4,15 @@
 
 import SwiftUI
 
-public struct PathNavigationView<Content>: View where Content: View {
-    @ObservedObject var viewModel: NavigationViewModel
-    let destinations: (AnyHashable) -> Content
-    let alerts: (AnyHashable) -> AlertElements
+public struct PathNavigationView<Content, NavigationRoute>: View where Content: View, NavigationRoute: Hashable {
+    @ObservedObject var viewModel: NavigationViewModel<NavigationRoute>
+    let destinations: (NavigationRoute) -> Content
+    let alerts: (NavigationRoute) -> AlertElements
 
     public init(
-        viewModel: NavigationViewModel,
-        destinations: @escaping (AnyHashable) -> Content,
-        alerts: @escaping (AnyHashable) -> AlertElements = { _ in noAlerts }
+        viewModel: NavigationViewModel<NavigationRoute>,
+        destinations: @escaping (NavigationRoute) -> Content,
+        alerts: @escaping (NavigationRoute) -> AlertElements = { _ in noAlerts }
     ) {
         self.viewModel = viewModel
         self.destinations = destinations

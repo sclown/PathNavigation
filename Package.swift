@@ -7,19 +7,13 @@ let package = Package(
     name: "Navigation",
     platforms: [.iOS("16.0")],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "Navigation",
-            targets: ["Navigation"]),
+        .library(name: "Navigation", targets: ["Navigation"]),
+        .library(name: "InputRequest", targets: ["InputRequest"]), // requires iOS 18
+        .library(name: "InputRequestCombine", targets: ["InputRequestCombine"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "Navigation"),
-        .testTarget(
-            name: "NavigationTests",
-            dependencies: ["Navigation"]
-        ),
+        .target(name: "Navigation"),
+        .target(name: "InputRequest", dependencies: ["Navigation"]),
+        .target(name: "InputRequestCombine", dependencies: ["Navigation"])
     ]
 )

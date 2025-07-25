@@ -29,7 +29,7 @@ struct MinimumNavigation: View {
     var body: some View {
         PathNavigationView(
             viewModel: navigation,
-            destinations: { destination($0 as? MinimumRoute) },
+            destinations: { destination($0) },
         )
     }
 }

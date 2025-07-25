@@ -4,23 +4,24 @@
 
 import Combine
 import Foundation
+import InputRequestCombine
 import Navigation
 
 @MainActor
 class NavigationHostViewModel {
     let router: PassthroughSubject<ExampleRoute, Never>
     let destination: DestinationsMap
-    let navigation: NavigationViewModel
+    let navigation: NavigationViewModel<ExampleRoute>
     let navigationSubscription: AnyCancellable?
     var external: AnyCancellable?
     
-    let top: PassthroughSubject<AnyHashable, Never>
+    let top: PassthroughSubject<ExampleRoute, Never>
     
     init() {
         let router = PassthroughSubject<ExampleRoute, Never>()
-        let top = PassthroughSubject<AnyHashable, Never>()
+        let top = PassthroughSubject<ExampleRoute, Never>()
         let navigation = NavigationViewModel(stack: ExampleRoute.root) { top.send($0) }
-        let request = InputRequest(router: router, top: top.eraseToAnyPublisher())
+        let request = InputRequestCombine(router: router, top: top.eraseToAnyPublisher())
         self.router = router
         self.navigation = navigation
         self.top = top

@@ -1,14 +1,14 @@
 //
-//  ExampleApp.swift
+//  MinimumApp.swift
 //
 
 import SwiftUI
 
 @main
-struct ExampleApp: App {
+struct MinimumApp: App {
     var body: some Scene {
         WindowGroup {
-            ExampleNavigation()
+            MinimumNavigation()
         }
     }
 }

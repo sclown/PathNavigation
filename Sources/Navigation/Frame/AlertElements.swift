@@ -1,8 +1,5 @@
 //
-//  File.swift
-//  Navigation
-//
-//  Created by Dmitry Kurkin on 11.04.25.
+//  AlertElemnets.swift
 //
 
 import SwiftUI
