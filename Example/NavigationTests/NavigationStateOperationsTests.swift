@@ -10,7 +10,7 @@ struct NavigationStateOperationsTests {
     @Test func applyStack() {
         var state = PathNavigationState.longStack
         
-        state.applyStack(path: [.details, .second])
+        state.applyStack(path: [.details, .profile])
         
         #expect(state.stackFragments == [.home, .detail, .profile])
     }
@@ -59,7 +59,9 @@ struct NavigationStateOperationsTests {
     
     @Test func reset() {
         var state = PathNavigationState.basic
-        state.reset(to: [.basic, .secondStack, .secondStack, .second, .second])
+        state.reset(
+            to: [.basic, .profileStack, .profileStack, .profile, .profile]
+        )
         
         #expect(state.stackFragments == [.home, .profile, .profile])
         #expect(state.fragments == [.profile, .profile])
@@ -68,7 +70,7 @@ struct NavigationStateOperationsTests {
     @Test func addBasic() {
         var state = PathNavigationState.basic
         
-        state.add(item: .second)
+        state.add(item: .profile)
         
         #expect(state.fragments == [.home, .profile])
         #expect(state.stackFragments == [])
@@ -77,7 +79,7 @@ struct NavigationStateOperationsTests {
     @Test func addToStack() {
         var state = PathNavigationState.basicStack
         
-        state.add(item: .secondStack)
+        state.add(item: .profileStack)
         
         #expect(state.path.count == 0)
         #expect(state.stackFragments == [.home, .profile])
@@ -86,7 +88,7 @@ struct NavigationStateOperationsTests {
     @Test func addOverStack() {
         var state = PathNavigationState.basicStack
         
-        state.add(item: .second)
+        state.add(item: .profile)
         
         #expect(state.stackFragments == [.home])
         #expect(state.fragments == [.profile])
@@ -103,92 +105,25 @@ struct NavigationStateOperationsTests {
     
     @Test func updateTop() {
         var state = PathNavigationState.basic
-        state.add(item: .second)
+        state.add(item: .profile)
         
         let result = state.updateTop()
         
-        #expect(result?.fragment == PathNavigationItem.second.fragment)
+        #expect(result?.fragment == PathNavigationItem.profile.fragment)
     }
     
     @Test func updateTopInStack() {
         var state = PathNavigationState.basicStack
-        state.add(item: .secondStack)
+        state.add(item: .profileStack)
         
         let result = state.updateTop()
 
-        #expect(result?.fragment == PathNavigationItem.secondStack.fragment)
+        #expect(result?.fragment == PathNavigationItem.profileStack.fragment)
     }
     
     @Test func updateTopWithNoChange() {
         var state = PathNavigationState.basicStack
         
         #expect(state.updateTop() == nil)
-    }
-}
-
-enum TestRoute: Hashable {
-    case home, profile, settings, detail
-}
-
-extension PathNavigationItem<TestRoute> {
-    static var basic: Self {
-        .init(TestRoute.home, .root)
-    }
-    
-    static var second: Self {
-        .init(.profile, .sheet)
-    }
-    
-    static var details: Self {
-        .init(.detail, .fullScreen)
-    }
-    
-    static var secondStack: Self {
-        .init(.profile, .push)
-    }
-    
-    static var overlay: Self {
-        .init(.profile, .overlay)
-    }
-    
-    static var secondOverlay: Self {
-        .init(.settings, .overlay)
-    }
-}
-
-extension PathNavigationState<TestRoute> {
-    static var basic: Self {
-        .init(path: [.basic])
-    }
-    
-    static var long: Self {
-        .init(path: [.basic, .second, .details])
-    }
-    
-    static var longStack: Self {
-        .init(
-            stack: PathStackFragments(
-                root: .basic,
-                pages: [.second, .details]
-            )
-        )
-    }
-
-    static var longStackMore: Self {
-        .init(
-            path: [.second],
-            stack: PathStackFragments(
-                root: .basic,
-                pages: [.second, .details]
-            )
-        )
-    }
-    
-    static var basicStack: Self {
-        .init(stack: .home)
-    }
-    
-    static var withOverlay: Self {
-        .init(path: [.basic, .overlay])
     }
 }
