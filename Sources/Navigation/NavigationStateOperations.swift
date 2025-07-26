@@ -5,16 +5,6 @@
 import Foundation
 
 extension PathNavigationState {
-    func last() -> PathNavigationItem<Route>? {
-        if let last = path.last {
-            return last
-        }
-        if let last = stack?.pages.last {
-            return last
-        }
-        return stack?.root
-    }
-
     var stackFragments: [Route] {
         stack.map { stackValue in
             [stackValue.root.fragment] + stackValue.pages.map(\.fragment)
@@ -27,7 +17,7 @@ extension PathNavigationState {
 
     mutating func applyStack(path: [PathNavigationItem<Route>]) {
         stack?.pages = path
-        updateLastItems()
+        updateFrameStates()
     }
 
     mutating func removeLast() {
@@ -39,14 +29,14 @@ extension PathNavigationState {
         } else {
             path.removeLast()
         }
-        updateLastItems()
+        updateFrameStates()
     }
 
     mutating func handleDismissed(stepID: String) {
         guard let index = (path.lastIndex { $0.itemID == stepID }) else { return }
         let count = path.count - index
         path.removeLast(count)
-        updateLastItems()
+        updateFrameStates()
     }
 
     mutating func reset(to path: [PathNavigationItem<Route>]) {
@@ -57,7 +47,7 @@ extension PathNavigationState {
             )
             self.path = path.dropFirst().filter { $0.transition != .push }
         }
-        updateLastItems()
+        updateFrameStates()
     }
 
     mutating func add(item: PathNavigationItem<Route>) {
@@ -69,34 +59,34 @@ extension PathNavigationState {
             }
             path.append(item)
         }
-        updateLastItems()
+        updateFrameStates()
     }
 
-    mutating func updateLastItems() {
+    mutating func updateFrameStates() {
 //        let pathDescription = "\(stackFragments) \(fragments)"
 //        Logger(for: .navigation).info("Navigation changed: \(pathDescription)")
         var items = [String: PathNavigationFrameState<Route>]()
         var nextStep: PathNavigationItem<Route>?
         for step in path.reversed() {
-            var item = lastItems.removeValue(forKey: step.itemID)
+            var frameState = frameStates.removeValue(forKey: step.itemID)
                 ?? PathNavigationFrameState(itemID: step.itemID)
-            if nextStep == nil, item.next != nil {
-                item.allowTransition = false
+            if nextStep == nil, frameState.next != nil {
+                frameState.allowTransition = false
             }
-            item.next = nextStep
-            items[step.itemID] = item
+            frameState.next = nextStep
+            items[step.itemID] = frameState
             nextStep = step
         }
         if stack != nil {
-            var item = lastItems.removeValue(forKey: rootID)
+            var frameState = frameStates.removeValue(forKey: rootID)
                 ?? PathNavigationFrameState(itemID: rootID)
-            if nextStep == nil, item.next != nil {
-                item.allowTransition = false
+            if nextStep == nil, frameState.next != nil {
+                frameState.allowTransition = false
             }
-            item.next = nextStep
-            items[rootID] = item
+            frameState.next = nextStep
+            items[rootID] = frameState
         }
-        lastItems = items
+        frameStates = items
     }
 
     mutating func updateTop() -> PathNavigationItem<Route>? {

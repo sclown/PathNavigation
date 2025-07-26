@@ -9,7 +9,7 @@ struct PathNavigationState<NavigationRoute: Hashable> {
     var path: [PathNavigationItem<NavigationRoute>]
     var stack: PathStackFragments<NavigationRoute>?
     let rootID: String
-    var lastItems = [String: PathNavigationFrameState<NavigationRoute>]()
+    var frameStates = [String: PathNavigationFrameState<NavigationRoute>]()
     var top: PathNavigationItem<NavigationRoute>?
 
     init(root: NavigationRoute) {
@@ -29,7 +29,7 @@ struct PathNavigationState<NavigationRoute: Hashable> {
         self.path = path
         self.stack = stack
         rootID = "root"
-        updateLastItems()
+        updateFrameStates()
         top = path.last ?? stack?.root
     }
 }

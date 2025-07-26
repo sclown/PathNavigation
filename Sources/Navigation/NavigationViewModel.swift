@@ -43,11 +43,11 @@ public class NavigationViewModel<NavigationRoute: Hashable>: ObservableObject {
     }
 
     public func allowTransition(for itemID: String) {
-        state.lastItems[itemID]?.allowTransition = true
+        state.frameStates[itemID]?.allowTransition = true
     }
 
     public func removeLast(stepID: String?) {
-        if let stepID, state.lastItems[stepID] != nil {
+        if let stepID, state.frameStates[stepID] != nil {
             state.handleDismissed(stepID: stepID)
             state.updateTop().map { topChanged($0.fragment) }
         }
@@ -71,7 +71,7 @@ public class NavigationViewModel<NavigationRoute: Hashable>: ObservableObject {
         state.path = path.map { fragment, transition in
             PathNavigationItem(fragment, transition)
         }
-        state.updateLastItems()
+        state.updateFrameStates()
         state.updateTop().map { topChanged($0.fragment) }
     }
 

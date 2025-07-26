@@ -67,7 +67,7 @@ public struct PathNavigationView<Content, NavigationRoute>: View where Content: 
         alertContent: AlertElements? = nil,
         stepID: String
     ) -> some View {
-        guard let state = (viewModel.state).lastItems[stepID] else {
+        guard let state = (viewModel.state).frameStates[stepID] else {
             preconditionFailure("PathNavigation: No state for step \(stepID)")
         }
         return PathNavigationFrame(
