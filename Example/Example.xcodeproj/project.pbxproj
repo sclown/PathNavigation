@@ -7,19 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE40EFEA2E33FF47003479C5 /* InputRequest in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFE92E33FF47003479C5 /* InputRequest */; };
-		DE40EFEC2E33FF47003479C5 /* InputRequestCombine in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFEB2E33FF47003479C5 /* InputRequestCombine */; };
-		DE40EFEE2E33FF47003479C5 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFED2E33FF47003479C5 /* Navigation */; };
-		DE40EFF12E3400BE003479C5 /* InputRequestCombine in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFF02E3400BE003479C5 /* InputRequestCombine */; };
-		DE40EFF32E3400BE003479C5 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFF22E3400BE003479C5 /* Navigation */; };
-		DEF3B57C2E2E22C20056ED8A /* InputRequest in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B57B2E2E22C20056ED8A /* InputRequest */; };
-		DEF3B57E2E2E22C20056ED8A /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B57D2E2E22C20056ED8A /* Navigation */; };
-		DEF3B5802E2E6D690056ED8A /* InputRequest in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B57F2E2E6D690056ED8A /* InputRequest */; };
-		DEF3B5822E2E6D690056ED8A /* InputRequestCombine in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B5812E2E6D690056ED8A /* InputRequestCombine */; };
-		DEF3B5842E2E6D690056ED8A /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B5832E2E6D690056ED8A /* Navigation */; };
-		DEF3B5982E2E70CF0056ED8A /* InputRequest in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B5972E2E70CF0056ED8A /* InputRequest */; };
-		DEF3B59A2E2E70CF0056ED8A /* InputRequestCombine in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B5992E2E70CF0056ED8A /* InputRequestCombine */; };
-		DEF3B59C2E2E70CF0056ED8A /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = DEF3B59B2E2E70CF0056ED8A /* Navigation */; };
+		DE40EFFA2E361CD6003479C5 /* PNInputRequest in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFF92E361CD6003479C5 /* PNInputRequest */; };
+		DE40EFFC2E361CD6003479C5 /* PNInputRequestCombine in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFFB2E361CD6003479C5 /* PNInputRequestCombine */; };
+		DE40EFFE2E361CD6003479C5 /* PathNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFFD2E361CD6003479C5 /* PathNavigation */; };
+		DE40F0002E361E0D003479C5 /* PathNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = DE40EFFF2E361E0D003479C5 /* PathNavigation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,18 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEF3B57E2E2E22C20056ED8A /* Navigation in Frameworks */,
-				DEF3B5822E2E6D690056ED8A /* InputRequestCombine in Frameworks */,
-				DEF3B57C2E2E22C20056ED8A /* InputRequest in Frameworks */,
-				DEF3B5802E2E6D690056ED8A /* InputRequest in Frameworks */,
-				DE40EFEE2E33FF47003479C5 /* Navigation in Frameworks */,
-				DE40EFF12E3400BE003479C5 /* InputRequestCombine in Frameworks */,
-				DE40EFF32E3400BE003479C5 /* Navigation in Frameworks */,
-				DEF3B5842E2E6D690056ED8A /* Navigation in Frameworks */,
-				DE40EFEC2E33FF47003479C5 /* InputRequestCombine in Frameworks */,
-				DE40EFEA2E33FF47003479C5 /* InputRequest in Frameworks */,
-				DEF3B59A2E2E70CF0056ED8A /* InputRequestCombine in Frameworks */,
-				DEF3B5982E2E70CF0056ED8A /* InputRequest in Frameworks */,
+				DE40EFFE2E361CD6003479C5 /* PathNavigation in Frameworks */,
+				DE40EFFC2E361CD6003479C5 /* PNInputRequestCombine in Frameworks */,
+				DE40EFFA2E361CD6003479C5 /* PNInputRequest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEF3B59C2E2E70CF0056ED8A /* Navigation in Frameworks */,
+				DE40F0002E361E0D003479C5 /* PathNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,18 +147,9 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				DEF3B57B2E2E22C20056ED8A /* InputRequest */,
-				DEF3B57D2E2E22C20056ED8A /* Navigation */,
-				DEF3B57F2E2E6D690056ED8A /* InputRequest */,
-				DEF3B5812E2E6D690056ED8A /* InputRequestCombine */,
-				DEF3B5832E2E6D690056ED8A /* Navigation */,
-				DEF3B5972E2E70CF0056ED8A /* InputRequest */,
-				DEF3B5992E2E70CF0056ED8A /* InputRequestCombine */,
-				DE40EFE92E33FF47003479C5 /* InputRequest */,
-				DE40EFEB2E33FF47003479C5 /* InputRequestCombine */,
-				DE40EFED2E33FF47003479C5 /* Navigation */,
-				DE40EFF02E3400BE003479C5 /* InputRequestCombine */,
-				DE40EFF22E3400BE003479C5 /* Navigation */,
+				DE40EFF92E361CD6003479C5 /* PNInputRequest */,
+				DE40EFFB2E361CD6003479C5 /* PNInputRequestCombine */,
+				DE40EFFD2E361CD6003479C5 /* PathNavigation */,
 			);
 			productName = Example;
 			productReference = DE482EAB2DA71EE900E96983 /* Example.app */;
@@ -199,7 +172,7 @@
 			);
 			name = Minimum;
 			packageProductDependencies = (
-				DEF3B59B2E2E70CF0056ED8A /* Navigation */,
+				DE40EFFF2E361E0D003479C5 /* PathNavigation */,
 			);
 			productName = Minimum;
 			productReference = DEF3B5892E2E702B0056ED8A /* Minimum.app */;
@@ -237,7 +210,7 @@
 			mainGroup = DE482EA22DA71EE900E96983;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				DE40EFEF2E3400BE003479C5 /* XCLocalSwiftPackageReference "../../Navigation" */,
+				DE40EFF82E361CD6003479C5 /* XCLocalSwiftPackageReference "../../Navigation" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DE482EAC2DA71EE900E96983 /* Products */;
@@ -642,64 +615,29 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		DE40EFEF2E3400BE003479C5 /* XCLocalSwiftPackageReference "../../Navigation" */ = {
+		DE40EFF82E361CD6003479C5 /* XCLocalSwiftPackageReference "../../Navigation" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../Navigation;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DE40EFE92E33FF47003479C5 /* InputRequest */ = {
+		DE40EFF92E361CD6003479C5 /* PNInputRequest */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = InputRequest;
+			productName = PNInputRequest;
 		};
-		DE40EFEB2E33FF47003479C5 /* InputRequestCombine */ = {
+		DE40EFFB2E361CD6003479C5 /* PNInputRequestCombine */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = InputRequestCombine;
+			productName = PNInputRequestCombine;
 		};
-		DE40EFED2E33FF47003479C5 /* Navigation */ = {
+		DE40EFFD2E361CD6003479C5 /* PathNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Navigation;
+			productName = PathNavigation;
 		};
-		DE40EFF02E3400BE003479C5 /* InputRequestCombine */ = {
+		DE40EFFF2E361E0D003479C5 /* PathNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = InputRequestCombine;
-		};
-		DE40EFF22E3400BE003479C5 /* Navigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Navigation;
-		};
-		DEF3B57B2E2E22C20056ED8A /* InputRequest */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = InputRequest;
-		};
-		DEF3B57D2E2E22C20056ED8A /* Navigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Navigation;
-		};
-		DEF3B57F2E2E6D690056ED8A /* InputRequest */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = InputRequest;
-		};
-		DEF3B5812E2E6D690056ED8A /* InputRequestCombine */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = InputRequestCombine;
-		};
-		DEF3B5832E2E6D690056ED8A /* Navigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Navigation;
-		};
-		DEF3B5972E2E70CF0056ED8A /* InputRequest */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = InputRequest;
-		};
-		DEF3B5992E2E70CF0056ED8A /* InputRequestCombine */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = InputRequestCombine;
-		};
-		DEF3B59B2E2E70CF0056ED8A /* Navigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Navigation;
+			package = DE40EFF82E361CD6003479C5 /* XCLocalSwiftPackageReference "../../Navigation" */;
+			productName = PathNavigation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

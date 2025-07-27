@@ -4,8 +4,8 @@
 
 import Combine
 import Foundation
-import InputRequestCombine
-import Navigation
+import PNInputRequestCombine
+import PathNavigation
 
 @MainActor
 class NavigationHostViewModel {

@@ -3,7 +3,7 @@
 //
 
 import Combine
-import InputRequestCombine
+import PNInputRequestCombine
 import SwiftUI
 
 struct RequestView: View {

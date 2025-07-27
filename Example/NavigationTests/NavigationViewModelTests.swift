@@ -4,7 +4,7 @@
 //
 
 import Testing
-@testable import Navigation
+@testable import PathNavigation
 
 struct NavigationViewModelTests {
     

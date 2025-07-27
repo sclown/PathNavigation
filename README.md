@@ -10,25 +10,12 @@ Navigation framework for SwiftUI applications. It handles most of navigation ope
 
 ## Installation
 
-You can add `Navigation` to your project using Swift Package Manager. In your `Package.swift` file, add the following dependency:
+You can add `PathNavigation` to your project using Swift Package Manager. In your `Package.swift` file, add the following dependency:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/your-username/Navigation.git", from: "0.2.0")
+    .package(url: "https://gitlab.com/xymatic-public/PathNavigation.git", from: "0.2.0")
 ]
-```
-
-Then, add the desired products to your target's dependencies:
-
-```swift
-.target(
-    name: "MyApp",
-    dependencies: [
-        .product(name: "InputRequest", package: "Navigation"),
-        // Optionally add Combine support
-        .product(name: "InputRequestCombine", package: "Navigation")
-    ]
-),
 ```
 
 ## Usage
@@ -101,8 +88,8 @@ Check Example project for more details.
 
 Framework comes with supporting modules for handling navigation cases like alerts or pickers. One shows the screen for some input and need results from it. It very convenient to have it as an async function or Combine's Publisher. 
 
-*   **`InputRequestCombine`**: provides solution with the dependency on Combine
-*   **`InputRequest`**: provides solution without combine, but requires iOS 18
+*   **`PNInputRequestCombine`**: provides solution with the dependency on Combine
+*   **`PNInputRequest`**: provides solution without combine, but requires iOS 18
 
 ## Contributing
 

@@ -2,7 +2,7 @@
 //  ExampleNavigation.swift
 //
 
-import Navigation
+import PathNavigation
 import SwiftUI
 
 struct ExampleNavigation: View {

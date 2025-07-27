@@ -2,7 +2,7 @@
 //  NavigationStates.swift
 //
 
-@testable import Navigation
+@testable import PathNavigation
 
 enum TestRoute: Hashable {
     case home, profile, settings, detail

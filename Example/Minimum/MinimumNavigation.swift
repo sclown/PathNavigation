@@ -2,7 +2,7 @@
 //  MinimumNavigation.swift
 //
 
-import Navigation
+import PathNavigation
 import SwiftUI
 
 let navigation = NavigationViewModel(root: MinimumRoute.root)

@@ -4,16 +4,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "Navigation",
+    name: "PathNavigation",
     platforms: [.iOS("16.0")],
     products: [
-        .library(name: "Navigation", targets: ["Navigation"]),
-        .library(name: "InputRequest", targets: ["InputRequest"]), // requires iOS 18
-        .library(name: "InputRequestCombine", targets: ["InputRequestCombine"])
+        .library(name: "PathNavigation", targets: ["PathNavigation"]),
+        .library(name: "PNInputRequest", targets: ["PNInputRequest"]), // requires iOS 18
+        .library(name: "PNInputRequestCombine", targets: ["PNInputRequestCombine"])
     ],
     targets: [
-        .target(name: "Navigation"),
-        .target(name: "InputRequest", dependencies: ["Navigation"]),
-        .target(name: "InputRequestCombine", dependencies: ["Navigation"])
+        .target(name: "PathNavigation"),
+        .target(name: "PNInputRequest", dependencies: ["PathNavigation"]),
+        .target(name: "PNInputRequestCombine", dependencies: ["PathNavigation"])
     ]
 )

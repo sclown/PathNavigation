@@ -3,8 +3,8 @@
 //
 
 import Combine
-import InputRequestCombine
-import Navigation
+import PNInputRequestCombine
+import PathNavigation
 import SwiftUI
 
 @MainActor
