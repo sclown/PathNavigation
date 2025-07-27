@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE482EAA2DA71EE900E96983"
-               BuildableName = "Example.app"
-               BlueprintName = "Example"
-               ReferencedContainer = "container:Example.xcodeproj">
+               BlueprintIdentifier = "DE791EF02E3623ED00A4901D"
+               BuildableName = "NavigationExample.app"
+               BlueprintName = "NavigationExample"
+               ReferencedContainer = "container:NavigationExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Example.xctestplan"
+            reference = "container:NavigationExample.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -40,10 +40,10 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE482EBB2DA71EEB00E96983"
-               BuildableName = "ExampleTests.xctest"
-               BlueprintName = "ExampleTests"
-               ReferencedContainer = "container:Example.xcodeproj">
+               BlueprintIdentifier = "DE791EFD2E3623EE00A4901D"
+               BuildableName = "NavigationExampleTests.xctest"
+               BlueprintName = "NavigationExampleTests"
+               ReferencedContainer = "container:NavigationExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -51,21 +51,10 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE482EC52DA71EEB00E96983"
-               BuildableName = "ExampleUITests.xctest"
-               BlueprintName = "ExampleUITests"
-               ReferencedContainer = "container:Example.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE40EFDD2E33FA97003479C5"
-               BuildableName = "NavigationTests.xctest"
-               BlueprintName = "NavigationTests"
-               ReferencedContainer = "container:Example.xcodeproj">
+               BlueprintIdentifier = "DE791F072E3623EE00A4901D"
+               BuildableName = "NavigationExampleUITests.xctest"
+               BlueprintName = "NavigationExampleUITests"
+               ReferencedContainer = "container:NavigationExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -84,10 +73,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE482EAA2DA71EE900E96983"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
-            ReferencedContainer = "container:Example.xcodeproj">
+            BlueprintIdentifier = "DE791EF02E3623ED00A4901D"
+            BuildableName = "NavigationExample.app"
+            BlueprintName = "NavigationExample"
+            ReferencedContainer = "container:NavigationExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -101,10 +90,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE482EAA2DA71EE900E96983"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
-            ReferencedContainer = "container:Example.xcodeproj">
+            BlueprintIdentifier = "DE791EF02E3623ED00A4901D"
+            BuildableName = "NavigationExample.app"
+            BlueprintName = "NavigationExample"
+            ReferencedContainer = "container:NavigationExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
