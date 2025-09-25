@@ -2,6 +2,8 @@
 
 Navigation framework for SwiftUI applications. It handles most of navigation operations in one common way similar to NavigationStack. Presentation of sheets, alerts, submodules could be done through the path.
 
+Originally published at [xymatic-public](https://gitlab.com/xymatic-public/pathnavigation)
+
 ## Features
 
 *   **Declarative Navigation**: Define navigation paths and flows in a clear, declarative way.
@@ -14,7 +16,7 @@ You can add `PathNavigation` to your project using Swift Package Manager. In you
 
 ```swift
 dependencies: [
-    .package(url: "https://gitlab.com/xymatic-public/PathNavigation.git", from: "0.2.0")
+    .package(url: "https://github.com/sclown/PathNavigation.git", from: "0.2.0")
 ]
 ```
 
